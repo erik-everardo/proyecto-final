@@ -1,0 +1,61 @@
+#modo-color{
+    list-style-type: none;
+    margin-left: 4px;
+}
+#header{
+    font-size: 30px;
+}
+#boton-modo-color{
+    color:black;
+}
+
+.botones-sidebar{
+    margin: 10px;
+}
+.card{
+    background-color: inherit;
+    margin:30px;
+}
+
+#letra{
+    height:100%;
+    overflow-y: auto;
+}
+
+/*-------------------------------------------------------------------------------*/
+/*garantizar que el documento al menos ocupa toda la pantalla*/
+html{
+    min-height: 100%;
+    position: relative;
+}
+/*el footer se pondra hasta abajo si no hay suficiente contenido
+para evitar que el footer quede arriba (donde termina el contenido)*/
+
+#footer{
+    text-align:center;
+    background-color: #f8f9fa;
+    bottom: 0px;
+    color: black;
+    position: absolute;
+    width: 100%;
+    bottom:0px;
+}
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+.container-fluid{
+    margin-bottom: 80px;
+}
+#top10{
+    margin:20px;
+}
+
+@font-face {
+    font-family: bodoni;
+    src: url(../fonts/BodoniXT.ttf);
+    }
+h3#ariana{
+    transform:rotate(-180deg);
+    text-align:center;
+    font-family:bodoni,Poppins,HelveticaNeue-Light,"Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+}
+.margenes-estandar{margin-top:20px}
+

@@ -1,0 +1,74 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+            <div class="row">
+                <div class="col-lg-9">
+                <div class="card">
+                    <h5 class="card-header">¡Bienvenido(a) a INTENSITY!</h5>
+                    <div class="card-body">
+                    <h5 class="card-title">INTENSITY</h5>
+                    <p class="card-text">Un sitio para compartir las canciones que le gusten.</p>
+                    <a asp-page="/About" class="btn btn-primary">Ver más</a>
+                </div>
+                </div>
+
+                <!--modal foto nightwish-->
+                    <div class="modal fade" id="modal-foto-nightwish" tabindex="-1" role="dialog" aria-labelledby="modal-foto-nightwish" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                              <img style="width:100%" src="images/decades.jpg">
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                <!--modal foto ariana grande-->
+                    <div class="modal fade" id="modal-foto-ariana" tabindex="-1" role="dialog" aria-labelledby="modal-foto-ariana" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                                <img style="width:100%;" src="images/Sweetener_album_cover.png">
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    
+
+                    
+                </div>
+                <div class="col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">Decades por Nightwish</h3>
+                            <a href="#" data-toggle="modal" data-target="#modal-foto-nightwish"><img src="images/decades.jpg" class="card-img-top"></a>
+                            <p class="card-text">
+                                Decades es el séptimo álbum recopilatorio de la banda findalesa Nightwish, salió a la venta el 9 de marzo de 2018 y el mismo día en la banda comenzó la gira Decades: World Tour.
+                            </p>
+                            <a href="http://nightwish.com/en/news/2018/03/decades-out-now" class="btn btn-primary" title="nightwish.com" target="_blank">Ver más <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 id="ariana" class="card-title">Sweetener por Ariana Grande</h3>
+                            <a href="#" data-toggle="modal" data-target="#modal-foto-ariana"><img src="images/Sweetener_album_cover.png" class="card-img-top"></a>
+                            <p class="card-text">
+                                Sweetener es el cuarto trabajo discográfico de la cantante y compositora estadounidense Ariana Grande.
+                            </p>
+                            <a href="https://www.arianagrande.com/" class="btn btn-primary" title="arianagrande.com" target="_blank">Ver más <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>

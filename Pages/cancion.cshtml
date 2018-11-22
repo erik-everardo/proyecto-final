@@ -1,0 +1,91 @@
+@page "{id?}"
+@model CancionModel
+@{
+    ViewData["Title"] = @Model.cancion.Name;
+}
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <h2>Publicación: @Model.cancion.Name</h2>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h4 class="card-title">@Model.cancion.Name</h4>
+            <a href="@(Model.cancion.linkYT)"><i class="fab fa-youtube" style="color:red;font-size:50px"></i></a>
+            <h5 class="card-subtitle mb-2 text-muted">Del album <strong>@(Model.album.Name)</strong> por <strong>@(Model.album.Artist)</strong></h6>
+            <p><strong>Genero:</strong> @Model.cancion.genero</p>
+            <h6 class="card-subtitle mb-1 text-muted">Descripción</h6>
+            <p class="card-text">@Model.comentario.Comentario</p>
+            <hr>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#eliminar" title="Eliminar"><i class="fas fa-trash"></i></button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modificar" title="Modificar"><i class="fas fa-pencil-alt"></i></button>
+            
+          </div>
+        </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="modificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Modificar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form action="/Modificar" method="get" >
+                        <div class="form-group">
+                            <input type="hidden" value="@Model.cancion.Id" name="_id">
+
+                            <label for="nombre">Nombre: </label>
+                            <input class="form-control" type="text" id="nombre" name="nombre" value="@Model.cancion.Name">
+                            <label for="artista">Artista: </label>
+                            <input class="form-control" type="text" id="artista" name="artista" value="@Model.album.Artist">
+                            <label for="album">Álbum: </label>
+                            <input class="form-control" type="text" id="album" name="album" value="@Model.album.Name">
+                            <label for="genero">Género: </label>
+                            <input class="form-control" type="text" id="genero" name="genero" value="@Model.cancion.genero">
+                        </div>
+                        <div class="form-group">
+                            <label for="descripcion">Comentario:</label>
+                            <textarea type="text" class="form-control margenes-estandar" rows="4" cols="50" id="descripcion" name="comentario" >@Model.comentario.Comentario</textarea>
+                        </div>
+                    
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Modificar</button>
+                  </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal fade" id="eliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Eliminar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                        <h5>¿Seguro que quiere eliminar publicación?</h5>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <form method="get" action="/borrar">
+                        <input type="hidden" value="@Model.cancion.Id" name="_id">
+                        <button type="submit" class="btn btn-primary">Si, borrar</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+    </div>
+    <div class="col-3"></div>
+</div>
+

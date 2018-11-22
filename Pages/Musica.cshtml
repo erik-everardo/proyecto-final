@@ -1,0 +1,36 @@
+﻿@page "{_id?}"
+@model MusicaModel
+@{
+    ViewData["Title"] = "Colección Musical";
+}
+
+<h2>@Model.Mensaje</h2>
+<div class="row">
+	<div class="col-lg-3"></div>
+	<div class="col-lg-6">
+		<table class="table">
+			<thead>
+				<th>Name</th>
+				<th>Album</th>
+				<th>Género</th>
+				<th></th>
+				<th></th>
+			</thead>
+			<tbody>
+				@foreach (var song in Model.SongsList)
+				{
+				<tr>
+					<td><a asp-page = "/cancion" asp-route-_id="@song.Id">@song.Name</a> </td>
+					<td>@song.Album.Name</td>
+					<td>@song.genero</td>
+					<td><a href="@song.linkYT"><i class="fab fa-youtube"></i></a></td>
+					<td><a asp-page = "/borrar" asp-route-_id="@song.Id"><i class="fas fa-trash"></i></a></td>
+				</tr>
+				}
+			</tbody>
+		</table>
+
+
+	</div>
+	<div class="col-lg-3"></div>
+</div>
